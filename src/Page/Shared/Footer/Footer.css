@@ -1,0 +1,11 @@
+.footer-section{
+    margin-top: 50px;
+    padding: 60px 10px;
+    background-image: url(/public/Coffee-Backgrouns-For-Desktop.jpg);
+    background-color: rgba(85, 62, 32, 0.938);
+    background-blend-mode: multiply;
+    opacity: .9;
+    background-position: center;
+    background-size: cover;
+
+}
