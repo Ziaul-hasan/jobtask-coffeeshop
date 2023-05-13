@@ -1,0 +1,8 @@
+.coffee-card{
+    background-image: url(/public/2389930.jpg);
+    background-color: rgb(10, 10, 10);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover;
+    padding: 20px;
+}

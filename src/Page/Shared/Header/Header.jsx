@@ -1,17 +1,28 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo1.png'
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     const navbar = <>
         <div className='text-base md:text-xl font-semibold text-orange-950 md:text-white flex flex-col md:flex-row md:space-x-5'>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/menu'>Menu</Link></li>
+            <li className='hover:text-yellow-700'><NavLink title='/home' className={({ isActive, isPending }) => isActive ? 'text-yellow-700 font-bold' : ''} to="/">Home</NavLink></li>
+            <li className='hover:text-yellow-700'><NavLink title='/menu' className={({ isActive, isPending }) => isActive ? 'text-yellow-700 font-bold' : ''} to="/menu">Menu</NavLink></li>
         </div>
     </>
     return (
-        <div className="navbar bg-[#4B281E] px-3 md:px-20 py-3">
+        <div className="navbar bg-black px-3 md:px-20 py-3">
             <div className="navbar-start w-3/4">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,14 +37,22 @@ const Header = () => {
                     <h2 className='text-lg md:text-3xl font-medium md:font-bold text-white'>CoffeeTime</h2>
                 </Link>
             </div>
-            <div className='w-1/4 text-end'>
+            <div className='w-1/2 text-end'>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navbar}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <Link className="btn bg-yellow-700">Login</Link>
+
+                <div className='navbar-end space-x-5'>
+                    {
+                        user && <li className='hover:text-yellow-700'><NavLink title={user.displayName} to=""> <img className='w-10 h-10 rounded-full border-2 border-yellow-700' src={user.photoURL} alt="" /> </NavLink></li>
+                    }
+
+                    {
+                        user ? <button onClick={handleLogout} className='btn border-0 bg-yellow-700 '><Link to='/login'>Logout</Link></button> : <button className='btn border-0 bg-yellow-700'><Link to='/login'>Login</Link></button>
+                    }
+
                 </div>
             </div>
         </div>

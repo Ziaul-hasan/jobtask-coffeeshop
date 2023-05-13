@@ -1,0 +1,6 @@
+.background-rg{
+    background-image: url(/public/hero-img-3-1.jpeg);
+    background-size: cover;
+    height: fit-content;
+    padding: 40px;
+}

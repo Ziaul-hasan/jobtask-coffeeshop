@@ -1,11 +1,10 @@
 .footer-section{
-    margin-top: 50px;
     padding: 60px 10px;
-    background-image: url(/public/Coffee-Backgrouns-For-Desktop.jpg);
-    background-color: rgba(85, 62, 32, 0.938);
-    background-blend-mode: multiply;
-    opacity: .9;
-    background-position: center;
-    background-size: cover;
+    background-image: url(/public/coffee-wallpaper-1306-1433-hd-wallpapers.jpg);
+    background-color: rgb(10, 10, 10);
+    background-blend-mode: overlay;
+    opacity: .95;
+    background-position: left;
+    background-size: auto;
 
 }

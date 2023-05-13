@@ -1,0 +1,8 @@
+.hero-background{
+    background-image: url(/public/-1x-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(8, 8, 8);
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+}
