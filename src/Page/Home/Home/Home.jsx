@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import Coffee from '../Coffee/Coffee';
 import './Home.css'
+import { Link } from 'react-router-dom';
+import Gallary from '../Gallary/Gallary';
 
 const Home = () => {
     const [coffees, setCoffees] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/coffees')
+        fetch('https://coffee-shop-server-chi.vercel.app/coffees')
             .then(res => res.json())
             .then(data => setCoffees(data.slice(0, 3)))
     }, [])
@@ -25,8 +27,9 @@ const Home = () => {
                     }
                 </div>
                 <div className='text-center'>
-                    <button className='btn border-0 bg-orange-800 my-6'>Show More</button>
+                    <Link to="/menu"><button className='btn border-0 bg-orange-800 my-6'>Show More</button></Link>
                 </div>
+                <Gallary></Gallary>
             </div>
         </div>
     );
